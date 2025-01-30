@@ -1,0 +1,10 @@
+<nav>
+    <button (click)="toggleMenu()">☰</button>
+    <ul [class.active]="menuActive">
+        <li><a routerLink="/employee-list">Employee List</a></li>
+        <li><a routerLink="/add-employee">Add Employee</a></li>
+        <li><a routerLink="/employee-medical-details">Employee Medical Details</a></li>
+        <li><a routerLink="/employee-charts">Employee Charts</a></li>
+        <li><a routerLink="/settings">Settings</a></li>
+    </ul>
+</nav>

@@ -1,0 +1,20 @@
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withRouterConfig,
+} from '@angular/router';
+import { routes } from './app.routes'; // Import your routes
+import { HttpClientModule } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(
+      routes,
+      withComponentInputBinding(),
+      withRouterConfig({
+        paramsInheritanceStrategy: 'always',
+      })
+    ),importProvidersFrom(HttpClientModule)
+  ],
+};

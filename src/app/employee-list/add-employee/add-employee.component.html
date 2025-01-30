@@ -1,0 +1,53 @@
+<!-- add-employee.component.html -->
+<div class="form-container">
+  <h2>Add New Employee</h2>
+  <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" />
+      @if (employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched) {
+        <div class="error">First Name is required</div>
+      }
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" />
+      @if (employeeForm.get('lastName')?.invalid && employeeForm.get('lastName')?.touched) {
+        <div class="error">Last Name is required</div>
+      }
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" />
+      @if (employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched) {
+        <div class="error">Valid email is required</div>
+      }
+    </div>
+    <div>
+      <label for="contactNumber">Contact Number</label>
+      <input id="contactNumber" formControlName="contactNumber" />
+      @if (employeeForm.get('contactNumber')?.invalid && employeeForm.get('contactNumber')?.touched) {
+        <div class="error">Valid contact number is required(only numbers)</div>
+      }
+    </div>
+    <div>
+      <label for="dob">Date of Birth</label>
+      <input id="dob" type="date" formControlName="dob" />
+      @if (employeeForm.get('dob')?.invalid && employeeForm.get('dob')?.touched) {
+        <div class="error">Date of Birth is required</div>
+      }
+    </div>
+    <div>
+      <label for="profession">Profession</label>
+      <select id="profession" formControlName="profession">
+        @for (profession of professions;track profession) {
+          <option [value]="profession">{{ profession }}</option>
+        }
+      </select>
+      @if (employeeForm.get('profession')?.invalid && employeeForm.get('profession')?.touched) {
+        <div class="error">Profession is required</div>
+      }
+    </div>
+    <button type="submit" [disabled]="employeeForm.invalid">Add Employee</button>
+  </form>
+</div>
