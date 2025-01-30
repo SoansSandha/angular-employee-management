@@ -4,7 +4,7 @@ import {
   withComponentInputBinding,
   withRouterConfig,
 } from '@angular/router';
-import { routes } from './app.routes'; // Import your routes
+import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
